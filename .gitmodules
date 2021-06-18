@@ -1,3 +1,6 @@
 [submodule "third_party/libev"]
 	path = third_party/libev
 	url = https://github.com/qgymib/libev.git
+[submodule "third_party/call_on_stack"]
+	path = third_party/call_on_stack
+	url = https://github.com/qgymib/call_on_stack.git

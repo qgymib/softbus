@@ -9,12 +9,7 @@ function(target_setup_w4 TARGET)
     endif ()
 endfunction()
 
-set_property(SOURCE src/call_in_stack.s
-    APPEND PROPERTY COMPILE_OPTIONS "-x" "assembler-with-cpp")
-
 add_library(${PROJECT_NAME}
-    src/call_in_stack.s
-    src/call_in_stack.c
     src/softbus.c)
 
 target_include_directories(${PROJECT_NAME}
@@ -26,10 +21,13 @@ target_include_directories(${PROJECT_NAME}
 
 target_setup_w4(${PROJECT_NAME})
 
+add_subdirectory(third_party/call_on_stack)
 add_subdirectory(third_party/libev)
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-        ev)
+        ev
+    PRIVATE
+        call_on_stack)
 
 # build test
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)

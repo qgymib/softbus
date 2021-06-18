@@ -12,5 +12,3 @@ function(BUS_ADD_TEST name)
 			${CMAKE_CURRENT_SOURCE_DIR})
 	add_test(${name} ${name})
 endfunction()
-
-BUS_ADD_TEST(call_in_stack)
